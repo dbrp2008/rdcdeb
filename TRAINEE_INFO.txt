@@ -1,3 +1,9 @@
-Deb-C-08 = Debroop Chattopadhyay (me)
+GitHub IDs:  Deb-C-08 (commit author, shown as "Deb C"), dbrp2008 (repository owner) both map to me (Debroop Chattopadhyay)
 
-Repository layout in general: branch "deb" is TR code, branch "deb-teach-replay" was something experimental that one of my mentors saw another group do but never tested, branch "wm-ar-fix" is AR code but stripped of everything unnecessary (wm-ar-fix was cloned off another group member's branch which had a lot of other stuff that I never used as I only worked on AR towards the very end of the RDC)
+Repository layout in general:
+- deb: TR code (routines 1 and 2).
+- deb-teach-replay: an experimental teach-and-replay feature for the TR. One of my mentors saw another group do
+  it but we never used it since original routines worked :>
+- wm-ar-fix: AR code, stripped down to what was used. It was copied from the wm-ar-fix branch of the team repo
+  (warmaster726/UST-Robotics-RDC-1), which builds on the branch of CHOI HO YIN (warmaster726) and also contains
+  other projects I never used. I only worked on the AR towards the end of RDC.
