@@ -27,4 +27,4 @@ Equality is white for either polarity. Each sensor may have a different polarity
 
 The drive screen repeats the accepted `T` and `BLACK` rows. Values remain in **RAM** when stopping, cycling F1/F2 or rerunning a selected function. To recalibrate, use hardware reset. There is no flash write, fixed fallback, manual copying, recompile or reflash between setup and drive.
 
-From the repository root, `sh firmware/ar-mainboard/tests/run_host_tests.sh` exercises both the [setup UI](../../Core/Src/ir_setup.c) and its handoff to the real board program with mocked I/O. These tests do not measure the physical sensors.
+From the repository root, `sh ar-mainboard/tests/run_host_tests.sh` exercises both the [setup UI](../../Core/Src/ir_setup.c) and its handoff to the real board program with mocked I/O. These tests do not measure the physical sensors.

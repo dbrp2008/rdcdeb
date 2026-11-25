@@ -239,7 +239,7 @@ frequency does not guarantee equal wheel RPM.
   F3 has its own controller but is not selectable.
 
 For a **single portable `.c` file** with the project headers included, run this
-from `firmware/ar-mainboard`. The export compiles as C11 using only standard
+from `ar-mainboard`. The export compiles as C11 using only standard
 headers. Use it **instead of**, not alongside, the project controller. It is a
 controller module, not a `main()` or a standalone flash image.
 
@@ -249,7 +249,7 @@ python tools/export_function1.py standalone/function1.c
 
 ## Build the drive firmware
 
-Open `firmware/ar-mainboard` in VS Code. **Terminal → Run Task** offers these project actions:
+Open `ar-mainboard` in VS Code. **Terminal → Run Task** offers these project actions:
 
 | Task | What it does |
 |---|---|
@@ -259,7 +259,7 @@ Open `firmware/ar-mainboard` in VS Code. **Terminal → Run Task** offers these 
 
 Disconnect motor-driver power before any flash action. The build steps are hidden
 from the picker; nothing is assigned to `Ctrl+Shift+B`. To run the **same
-Release build without flashing**, open a terminal in `firmware/ar-mainboard`:
+Release build without flashing**, open a terminal in `ar-mainboard`:
 
 ```sh
 cmake -P tools/build_release.cmake
@@ -419,7 +419,7 @@ Missed pulses can imitate a negative rate change. Do not enable motor drive to t
   from the limit. The live raw IRQ totals in `EncoderMonitor_Read()` remain unsigned,
   wrap at 2³², and are not cleared by BTN1. L2/R2 side-IR edges are excluded.
 
-**Build only** from `firmware/ar-mainboard`, with the Arm GNU tools on `PATH` and
+**Build only** from `ar-mainboard`, with the Arm GNU tools on `PATH` and
 this board’s generated CubeMX support present:
 
 ```sh
@@ -796,7 +796,7 @@ used.
 
 ## Verification
 
-Run `sh firmware/ar-mainboard/tests/run_host_tests.sh` using GCC, GNU ld and
+Run `sh ar-mainboard/tests/run_host_tests.sh` using GCC, GNU ld and
 Python 3. The host suite runs the real F1/F2 selector through mocked board
 I/O, including button captures and the apply chord on each simulated boot.
 It varies L2/R2 independently of all eight L/C/R masks and checks held starts,
@@ -820,7 +820,7 @@ across window boundaries and check 200 ms signed rates, independent confirmation
 delayed polls, tick wrap, fractional reversals and signed count limits.
 
 To test both build tasks (Python 3, host GCC, CMake 3.22+ and Ninja), run
-`python3 firmware/ar-mainboard/tests/test_build_release.py` from the repository root.
+`python3 ar-mainboard/tests/test_build_release.py` from the repository root.
 It uses temporary projects and does not invoke the programmer.
 
 Host mocks do not verify stopping distance, sensor accuracy, wheel direction,

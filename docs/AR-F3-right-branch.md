@@ -1,6 +1,6 @@
 # F3 — right-branch line following with a terminal US1 stop
 
-**Dormant in the combined AR drive firmware.** After boot IR calibration, the production [selector](../firmware/ar-mainboard/Core/Src/drive_plan.c) offers **F1 and F2 only**. B1+B2 changes the selection; a separate B1 tap runs it. F3 is compiled and linked but is not initialized, given sensor readings, or allowed to command the motors. There is no F3 hardware preset, build flag, button, or automatic transition. On the F1 outbound leg, a valid US1 reading below 60 mm starts the **350 ms F1 approach, then hold/reverse**, not F3's terminal stop.
+**Dormant in the combined AR drive firmware.** After boot IR calibration, the production [selector](../ar-mainboard/Core/Src/drive_plan.c) offers **F1 and F2 only**. B1+B2 changes the selection; a separate B1 tap runs it. F3 is compiled and linked but is not initialized, given sensor readings, or allowed to command the motors. There is no F3 hardware preset, build flag, button, or automatic transition. On the F1 outbound leg, a valid US1 reading below 60 mm starts the **350 ms F1 approach, then hold/reverse**, not F3's terminal stop.
 
 ## Retained behavior (host simulation, not the active robot)
 
@@ -23,6 +23,6 @@ The top row, `F3 RIGHT n`, counts **right exits selected** in this run, not conf
 
 ## Verify without enabling F3
 
-Run `sh firmware/ar-mainboard/tests/run_host_tests.sh` from the repository root. The combined board objects are tested first with the real two-function selector (any F3 callback fails that test); isolated host replays then exercise the retained F3 policy with mock sensors and motors. Checks include repeated right exits, the 39/40 mm boundary, sensor faults, and no automatic restart. The test-only plan injection is never linked into a hardware image.
+Run `sh ar-mainboard/tests/run_host_tests.sh` from the repository root. The combined board objects are tested first with the real two-function selector (any F3 callback fails that test); isolated host replays then exercise the retained F3 policy with mock sensors and motors. Checks include repeated right exits, the 39/40 mm boundary, sensor faults, and no automatic restart. The test-only plan injection is never linked into a hardware image.
 
 The ordinary AR `Release` firmware must display **`F1 LINE BR 0`**, not `F3 RIGHT 0`. Do not use a previously built F3 ELF for this F1/F2 drive program.

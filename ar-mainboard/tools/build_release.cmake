@@ -88,7 +88,7 @@ if(NOT DEFINED bin)
     endif()
     message(FATAL_ERROR "No complete Arm GNU bin directory found (AR_GCC_BIN='${AR_GCC_BIN}'). "
         "Install GNU Tools for STM32, or run cmake ${retry_preset}\"-DAR_GCC_BIN=C:/actual/toolchain/bin\" -P tools/build_release.cmake "
-        "from firmware/ar-mainboard. That directory must contain arm-none-eabi-gcc and arm-none-eabi-objcopy. Nothing was flashed.")
+        "from ar-mainboard. That directory must contain arm-none-eabi-gcc and arm-none-eabi-objcopy. Nothing was flashed.")
 endif()
 
 # CubeMX's generated toolchain names gcc (for BOTH C and ASM) without a

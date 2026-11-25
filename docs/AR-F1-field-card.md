@@ -71,4 +71,4 @@ Power the logic/sensors only. Keep US1 valid and at least 60 mm away throughout 
 4. Show right-only tape (`WWB`) for 0.2 s: still pivoting. Return to centre-only (`WBW`): expect `RUN STRAIGHT` at `BR 3`.
 5. Press **B2 alone**: expect `STOP BTN2` and **F2 still selected**. To select F1 without moving, release B2 and use a fresh B1+B2 gesture. Finish checking before reconnecting motor power.
 
-[F1 controller](../firmware/ar-mainboard/Core/Src/function1.c) · [F2 turn](../firmware/ar-mainboard/Core/Src/function2.c) · [Board I/O and thresholds](../firmware/ar-mainboard/Core/Src/calibration_app.c) · [Crossing detector](../firmware/ar-mainboard/Core/Inc/branch_latch.h) · [Full board guide](../firmware/ar-mainboard/README.md)
+[F1 controller](../ar-mainboard/Core/Src/function1.c) · [F2 turn](../ar-mainboard/Core/Src/function2.c) · [Board I/O and thresholds](../ar-mainboard/Core/Src/calibration_app.c) · [Crossing detector](../ar-mainboard/Core/Inc/branch_latch.h) · [Full board guide](../ar-mainboard/README.md)

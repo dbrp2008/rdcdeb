@@ -17,4 +17,4 @@ docs/
 └── README.md                  Project map and links
 ```
 
-Build each firmware project from its own directory. The [AR MainBoard drive build](firmware/ar-mainboard/README.md#build-the-drive-firmware) needs no CMake preset. Its optional [EncoderBench preset](firmware/ar-mainboard/README.md#passive-encoder-bench) reads hand-turned wheels without driving them. Read the project instructions before flashing or enabling motor power. The motor tuner is a separate bench image and does not receive joystick commands from the TR Controller.
+Build each firmware project from its own directory. The [AR MainBoard drive build](ar-mainboard/README.md#build-the-drive-firmware) needs no CMake preset. Its optional [EncoderBench preset](ar-mainboard/README.md#passive-encoder-bench) reads hand-turned wheels without driving them. Read the project instructions before flashing or enabling motor power. The motor tuner is a separate bench image and does not receive joystick commands from the TR Controller.
