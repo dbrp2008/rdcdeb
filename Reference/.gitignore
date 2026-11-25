@@ -1,0 +1,5 @@
+# CubeMX-managed libraries used by the reference projects.
+/Controller/Drivers/CMSIS/
+/Controller/Drivers/STM32F1xx_HAL_Driver/
+/MainBoard/Drivers/CMSIS/
+/MainBoard/Drivers/STM32F4xx_HAL_Driver/
