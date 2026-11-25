@@ -1,0 +1,44 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cmake",
+            "label": "CMake: Build Motor Tuner Release",
+            "command": "build",
+            "preset": "Release",
+            "targets": [
+                "all"
+            ],
+            "problemMatcher": [],
+            "detail": "Build the custom motor-tuner target with the Release preset and GNU STM32 14.3.1+st.2."
+        },
+        {
+            "type": "process",
+            "label": "Flash Motor Tuner via ST-LINK",
+            "command": "C:/Program Files/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+            "args": [
+                "-c",
+                "port=SWD",
+                "-w",
+                "build/Release/MainBoardMotorTuner.elf",
+                "-v",
+                "-rst"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "detail": "Flash and verify the Release tuner ELF via ST-LINK/SWD, then reset. STM32CubeProgrammer is invoked by absolute path, not PATH."
+        },
+        {
+            "label": "Build + Flash Motor Tuner (Release)",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "CMake: Build Motor Tuner Release",
+                "Flash Motor Tuner via ST-LINK"
+            ],
+            "problemMatcher": [],
+            "detail": "Build Release, then flash and reset the tuner via ST-LINK."
+        }
+    ]
+}

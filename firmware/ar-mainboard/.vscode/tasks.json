@@ -1,0 +1,58 @@
+{
+    "version": "2.0.0",
+    "options": {"cwd": "${workspaceFolder}"},
+    "tasks": [
+        {
+            "label": "Flash Existing AR MainBoard (Release)",
+            "type": "process",
+            "command": "C:/Program Files/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+            "args": [
+                "-c",
+                "port=SWD",
+                "-w",
+                "build/Release/MainBoard.elf",
+                "-v",
+                "-rst"
+            ],
+            "problemMatcher": [],
+            "detail": "Flash the last built Release image over ST-LINK without rebuilding, verify and reset. Disconnect motor-driver power first."
+        },
+        {
+            "label": "Build + Flash AR MainBoard (Release)",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Build AR MainBoard (Release)",
+                "Flash Existing AR MainBoard (Release)"
+            ],
+            "problemMatcher": [],
+            "detail": "Build current sources, then flash over ST-LINK, verify and reset. Disconnect motor-driver power first."
+        },
+        {
+            "label": "Build AR MainBoard (Release)",
+            "type": "process",
+            "hide": true,
+            "command": "cmake",
+            "args": ["-P", "tools/build_release.cmake"],
+            "problemMatcher": [],
+            "detail": "Find the Arm C toolchain, configure and compile Release. This step does not flash."
+        },
+        {
+            "label": "Build + Flash AR Encoder Bench",
+            "type": "process",
+            "dependsOn": "Build AR Encoder Bench",
+            "command": "C:/Program Files/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+            "args": ["-c", "port=SWD", "-w", "build/EncoderBench/EncoderBench.elf", "-v", "-rst"],
+            "problemMatcher": [],
+            "detail": "Build the passive EncoderBench preset, then program only its ELF over ST-LINK, verify and reset. Leave motor-driver power disconnected."
+        },
+        {
+            "label": "Build AR Encoder Bench",
+            "type": "process",
+            "hide": true,
+            "command": "cmake",
+            "args": ["-DAR_BUILD_PRESET=EncoderBench", "-P", "tools/build_release.cmake"],
+            "problemMatcher": [],
+            "detail": "Find the Arm C toolchain and build the separate EncoderBench preset. This step does not flash."
+        }
+    ]
+}
