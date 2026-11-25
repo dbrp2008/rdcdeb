@@ -1,0 +1,3 @@
+Deb-C-08 = Debroop Chattopadhyay (me)
+
+Repository layout in general: branch "deb" is TR code, branch "deb-teach-replay" was something experimental that one of my mentors saw another group do but never tested, branch "wm-ar-fix" is AR code but stripped of everything unnecessary (wm-ar-fix was cloned off another group member's branch which had a lot of other stuff that I never used as I only worked on AR towards the very end of the RDC)
